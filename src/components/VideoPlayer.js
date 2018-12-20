@@ -1,10 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { Advertisement} from 'semantic-ui-react'
 
 
  const VideoPlayer = props => {
-
         return(
             <div className="video-player">
             <div>
