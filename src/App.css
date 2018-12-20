@@ -12,10 +12,10 @@
 }
 .video-player{
   grid-area: video-player;
-  background: blue;
+  background: #BAC4D8;
 }
 .video-list{
   grid-area: video-list;
-  background: #FFFACD;
+  background: #FFF;
   padding: 15px;
 }

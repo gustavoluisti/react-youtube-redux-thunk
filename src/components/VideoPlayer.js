@@ -13,7 +13,12 @@ import { Advertisement, Embed} from 'semantic-ui-react'
             }
             {
                 props.video.id && (
-                    <Embed id={props.video.id.videoId} />
+                    <div>
+                         <Embed id={props.video.id.videoId} source="youtube" />
+                         <p>{props.video.snippet.title}</p>
+                         <p>{props.video.snippet.description}</p>
+                    </div>
+                   
                 )
             }
                
