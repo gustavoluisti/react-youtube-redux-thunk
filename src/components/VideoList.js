@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { reproduzVideo } from '../store/actions/reproduz-video'
 
 import { List, Image, Dimmer, Loader} from 'semantic-ui-react'
 
@@ -7,7 +8,7 @@ class VideoList extends Component{
     renderVideo(video){
         return (
             <List key={video.etag} animated verticalAlign="middle">
-                <List.Item>
+                <List.Item  onClick={() => {this.props.reproduz(video)}}>
                     <Image  src={video.snippet.thumbnails.default.url} />
                 </List.Item>
                 <List.Header>{video.snippet.title}</List.Header>
@@ -35,7 +36,11 @@ class VideoList extends Component{
     }
     }
    
-        
+const mapDispatchToProps = (dispatch) => {
+    return {
+        reproduz: (video) => dispatch(reproduzVideo(video))
+    }
+}     
 
 
 const mapStateToProps = (state) => {
@@ -46,4 +51,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null )(VideoList)
+export default connect( mapStateToProps, mapDispatchToProps )(VideoList)
