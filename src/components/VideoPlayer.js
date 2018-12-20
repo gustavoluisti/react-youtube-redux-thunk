@@ -1,15 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Advertisement} from 'semantic-ui-react'
+import { Advertisement, Embed} from 'semantic-ui-react'
 
 
  const VideoPlayer = props => {
         return(
             <div className="video-player">
-            <div>
-                <p>{JSON.stringify(props)}</p>
-            </div>
-                <Advertisement style={{'height': '433px'}} unit='top banner' test='Escolha um vídeo' />
+            {
+                !props.video.id && (
+                    <Advertisement style={{'height': '433px'}} unit='top banner' test='Escolha um vídeo' />
+                )
+            }
+            {
+                props.video.id && (
+                    <Embed id={props.video.id.videoId} />
+                )
+            }
+               
             </div>
         )
     }
